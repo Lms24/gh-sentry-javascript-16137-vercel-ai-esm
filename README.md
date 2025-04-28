@@ -2,6 +2,8 @@
 
 This repository demonstrates an error that occurs when using Sentry with Vercel AI SDK in ESM
 
+Original reproduction available at: https://github.com/Jaakkonen/sentry-spotlight-vercel-ai-bug
+
 ## Error Description
 
 When running a Node.js application that registers the `import-in-the-middle` hook and adds Sentry's `SentryVercelAiInstrumentation`, the following error occurs:
