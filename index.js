@@ -1,10 +1,17 @@
-import * as Sentry from '@sentry/node'
+import {register} from 'module';
+import { createAddHookMessageChannel } from 'import-in-the-middle';
 
-Sentry.init({
-  tracesSampler: (ctx) => {
-    return 0.01
-  },
-  spotlight: true,
-})
+import { vercelAIIntegration } from '@sentry/node';
 
-await import("./otherfile.js")
+const { addHookMessagePort } = createAddHookMessageChannel();
+
+register('import-in-the-middle/hook.mjs', import.meta.url, {
+    data: { addHookMessagePort, include: [] },
+    transferList: [addHookMessagePort],
+});
+
+const vercelAiInteg = vercelAIIntegration();
+// setupOnce initializes the actual instrumentation
+vercelAiInteg.setupOnce();
+
+await import('./otherfile.js');

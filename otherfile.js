@@ -1,3 +1,3 @@
-import { generateText } from "ai";
+import {generateText} from "ai";
 
 console.log(generateText)
