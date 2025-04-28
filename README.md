@@ -1,4 +1,4 @@
-# OpenTelemetry AI and `import-in-the-middle` Error Reproduction
+# Vercel AI and `import-in-the-middle` Error Reproduction
 
 This repository demonstrates an error that occurs when using Sentry with Vercel AI SDK in ESM
 
